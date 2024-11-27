@@ -11,12 +11,14 @@
  add_action('wp_enqueue_scripts', 'mpp_plugin_enqueue_styles');
  function mpp_plugin_enqueue_styles() {
     wp_enqueue_style('mpp-plugin-styles', plugin_dir_url(__FILE__) . 'assets/custom-css.css');
+    wp_register_script('mpp-plugin-script', plugin_dir_url(__FILE__) . 'assets/custom-js.js', array(), null, true);
+    wp_enqueue_script('mpp-plugin-script');
  }
 
- // Custom JS for the footer
+ // Custom code for the footer
  add_action('wp_footer', 'mpp_plugin_js_for_footer');
  function mpp_plugin_js_for_footer() {
-    echo '<script src="' . plugin_dir_url(__FILE__) . 'assets/custom-js.js"></script>';
+    // echo '<script src="' . plugin_dir_url(__FILE__) . 'assets/custom-js.js"></script>';
  }
 
  // Add anything you want to add to the <head> tag
